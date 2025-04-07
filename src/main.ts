@@ -1,6 +1,6 @@
 import './style.css';
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
+document.querySelector<HTMLDivElement>('#story')!.innerHTML = `
   <div>
     <p>
       Time: 0
@@ -17,7 +17,7 @@ let count: number = 0;
 
 setInterval(() => {
   count += 1;
-  document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
+  document.querySelector<HTMLDivElement>('#story')!.innerHTML = `
   <div>
     <p>
       Time: ${count}
