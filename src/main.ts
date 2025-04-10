@@ -8,7 +8,8 @@ class State {
 let state = new State();
 
 function update_xp() {
-  let xp_meter = <HTMLElement>document.getElementById("xp");
+  let xp_meter = document.getElementById("xp");
+  if (xp_meter == null) { throw new Error(); }
   xp_meter.innerHTML = `${state.xp} / ${state.max_xp}`;
 }
 
