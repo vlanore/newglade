@@ -1,30 +1,11 @@
 import './style.css';
 
-document.querySelector<HTMLDivElement>('#story')!.innerHTML = `
-  <div>
-    <p>
-      Time: 0
-    </p>
-    <button>Explore</button>
-    <button>Forage</button>
-    <button>Hunt</button>
-  </div>
-`;
+let xp = 1;
+let max_xp = 1000;
 
+function update_xp() {
+  let xp_meter = <HTMLElement>document.getElementById("xp");
+  xp_meter.innerHTML = `${xp} / ${max_xp}`;
+}
 
-let count: number = 0;
-
-
-setInterval(() => {
-  count += 1;
-  document.querySelector<HTMLDivElement>('#story')!.innerHTML = `
-  <div>
-    <p>
-      Time: ${count}
-    </p>
-    <button>Explore</button>
-    <button>Forage</button>
-    <button>Hunt</button>
-  </div>
-`;
-}, 100);
+setInterval(() => { xp += 1; update_xp(); }, 250);
