@@ -6,7 +6,7 @@
 #main-columns>div {
   border: 1px solid blue;
   margin: 5px;
-  ;
+  padding: 15px;
 }
 
 :root {
