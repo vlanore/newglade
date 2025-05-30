@@ -3,6 +3,8 @@ import './style.css';
 class State {
     xp = 1;
     max_xp = 1000;
+    corpses = 2;
+    zombies = 0;
 }
 
 let state = new State();
@@ -15,15 +17,23 @@ function get_element(id: string): HTMLElement {
     return element;
 }
 
-function update_xp() {
+function update() {
     let xp_meter = get_element("xp");
     xp_meter.innerHTML = `${state.xp} / ${state.max_xp}`;
+
+    let zombies_meter = get_element("zombies");
+    zombies_meter.innerHTML = `${state.zombies}`;
+
+    let corpses_meter = get_element("corpses");
+    corpses_meter.innerHTML = `${state.corpses}`;
 }
 
-setInterval(() => { state.xp += 1; update_xp(); }, 500);
+setInterval(() => { state.xp += 1; update(); }, 500);
 
 let rz_button = get_element("raise-zombie");
 rz_button.onclick = () => {
-    let zombies_counter = get_element("zombies");
-    zombies_counter.innerHTML = `1`;
+    if (state.corpses > 0) {
+        state.zombies += 1;
+        state.corpses -= 1;
+    }
 };
