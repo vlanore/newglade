@@ -25,14 +25,18 @@ function update() {
     zombies_meter.innerHTML = `${state.zombies}`;
 
     let corpses_meter = get_element("corpses");
-    corpses_meter.innerHTML = `${state.corpses}`;
+    corpses_meter.innerHTML = `${state.corpses.toFixed(2)}`;
 }
 
-setInterval(() => { state.xp += 1; update(); }, 500);
+setInterval(() => {
+    state.xp += 1;
+    state.corpses += 0.01 * state.zombies;
+    update();
+}, 500);
 
 let rz_button = get_element("raise-zombie");
 rz_button.onclick = () => {
-    if (state.corpses > 0) {
+    if (state.corpses >= 1) {
         state.zombies += 1;
         state.corpses -= 1;
     }
