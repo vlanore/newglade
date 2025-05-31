@@ -5,6 +5,7 @@ class State {
     max_xp = 1000;
     corpses = 2;
     zombies = 0;
+    fighters = 0;
 }
 
 let state = new State();
