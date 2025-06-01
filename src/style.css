@@ -1,15 +1,17 @@
-#main-columns {
+#main-columns,
+#skill-choice {
   border: 1px solid red;
-  display: flex;
 }
 
-#main-columns>div {
+#main-columns>div,
+#skill-choice>div {
   border: 1px solid green;
   margin: 5px;
   padding: 15px;
 }
 
-#main-columns>div>div {
+#main-columns>div>div,
+#skill-choice>div>div {
   border: 1px solid blue;
   margin: 5px;
   padding: 15px;

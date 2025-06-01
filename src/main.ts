@@ -57,6 +57,7 @@ rz_button.onclick = () => {
         state.zombies += 1;
         state.corpses -= 1;
     }
+    // get_element("skill-choice").hidden = !get_element("skill-choice").hidden;
 };
 
 let add_hunter = get_element("add-zombie-hunter");
