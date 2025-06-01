@@ -27,6 +27,9 @@ function update() {
 
     let corpses_meter = get_element("corpses");
     corpses_meter.innerHTML = `${Math.trunc(state.corpses)}`;
+
+    let nb_fighters = get_element("nb-fighters");
+    nb_fighters.innerHTML = `${state.fighters}`;
 }
 
 let previous_time = Date.now();
@@ -36,7 +39,7 @@ setInterval(() => {
     let diff = (now - previous_time) / 1000.0;
 
     state.xp += diff * 1;
-    state.corpses += diff * 0.01 * state.zombies;
+    state.corpses += diff * 0.05 * state.fighters;
 
     update();
     previous_time = now;
@@ -47,5 +50,21 @@ rz_button.onclick = () => {
     if (state.corpses >= 1) {
         state.zombies += 1;
         state.corpses -= 1;
+    }
+};
+
+let add_fighter = get_element("add-zombie-fighter");
+add_fighter.onclick = () => {
+    if (state.zombies > 0) {
+        state.zombies -= 1;
+        state.fighters += 1;
+    }
+};
+
+let remove_fighter = get_element("remove-zombie-fighter");
+remove_fighter.onclick = () => {
+    if (state.fighters > 0) {
+        state.zombies += 1;
+        state.fighters -= 1;
     }
 };
