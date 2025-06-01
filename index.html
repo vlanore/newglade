@@ -13,35 +13,38 @@
 <body data-bs-theme="dark">
 
   <div id="app">
-    <div id="main-columns">
-      <!------------------------------------------------------------------------------->
-      <div id="resources">
-        <p>Corpses: <span id="corpses"> 2 </span> </p>
-        <p>Zombies: <span id="zombies"> 0 </span> </p>
-        <p>Stone: <span> 0 / 100 </span> </p>
-        <p>Wood: <span> 0 / 100 </span> </p>
+    <div id="main-columns" class="container text-center  justify-content-center">
+      <div class="row">
+        <!------------------------------------------------------------------------------->
+        <div id="resources" class="col-auto">
+          <p>Corpses: <span id="corpses"> 2 </span> </p>
+          <p>Zombies: <span id="zombies"> 0 </span> </p>
+          <p>Stone: <span> 0 / 100 </span> </p>
+          <p>Wood: <span> 0 / 100 </span> </p>
+        </div>
+
+        <!------------------------------------------------------------------------------->
+        <div id="story" class="col-auto">
+          <p>You are here.</p>
+          <button type="button" class="btn btn-primary" id="raise-zombie" data-bs-toggle="tooltip" data-bs-html="true"
+            data-bs-title="Another <b>tooltip</b>">Raise zombie</button>
+          <p>
+            Hunters: <span id="nb-hunters">0</span>
+            <button type="button" class="btn btn-secondary" id="add-zombie-hunter">+</button>
+            <button type="button" class="btn btn-secondary" id="remove-zombie-hunter">-</button>
+          </p>
+
+        </div>
+
+        <!------------------------------------------------------------------------------->
+        <div id="character" class="col-auto">
+          <p>Blood: <span> 20 / 100 </span> </p>
+          <p>XP: <span id="xp"> 0 / 1000 </span> </p>
+        </div>
       </div>
-
-      <!------------------------------------------------------------------------------->
-      <div id="story">
-        <p>You are here.</p>
-        <button type="button" class="btn btn-primary" id="raise-zombie" data-bs-toggle="tooltip"
-          data-bs-title="Another tooltip">Raise zombie</button>
-        <p>
-          Hunters: <span id="nb-hunters">0</span>
-          <button type="button" class="btn btn-secondary" id="add-zombie-hunter">+</button>
-          <button type="button" class="btn btn-secondary" id="remove-zombie-hunter">-</button>
-        </p>
-
-      </div>
-
-      <!------------------------------------------------------------------------------->
-      <div id="character">
-        <p>Blood: <span> 20 / 100 </span> </p>
-        <p>XP: <span id="xp"> 0 / 1000 </span> </p>
-      </div>
-
     </div>
+
+  </div>
   </div>
 
   <script type="module" src="/src/main.ts"></script>

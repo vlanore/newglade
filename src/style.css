@@ -4,6 +4,12 @@
 }
 
 #main-columns>div {
+  border: 1px solid green;
+  margin: 5px;
+  padding: 15px;
+}
+
+#main-columns>div>div {
   border: 1px solid blue;
   margin: 5px;
   padding: 15px;
