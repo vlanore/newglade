@@ -20,20 +20,27 @@ function get_element(id: string): HTMLElement {
 
 function update() {
     let xp_meter = get_element("xp");
-    xp_meter.innerHTML = `${state.xp} / ${state.max_xp}`;
+    xp_meter.innerHTML = `${state.xp.toFixed(1)} / ${state.max_xp}`;
 
     let zombies_meter = get_element("zombies");
     zombies_meter.innerHTML = `${state.zombies}`;
 
     let corpses_meter = get_element("corpses");
-    corpses_meter.innerHTML = `${state.corpses.toFixed(2)}`;
+    corpses_meter.innerHTML = `${Math.trunc(state.corpses)}`;
 }
 
+let previous_time = Date.now();
+
 setInterval(() => {
-    state.xp += 1;
-    state.corpses += 0.01 * state.zombies;
+    let now = Date.now();
+    let diff = (now - previous_time) / 1000.0;
+
+    state.xp += diff * 1;
+    state.corpses += diff * 0.01 * state.zombies;
+
     update();
-}, 500);
+    previous_time = now;
+}, 100);
 
 let rz_button = get_element("raise-zombie");
 rz_button.onclick = () => {
