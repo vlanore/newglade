@@ -1,5 +1,10 @@
 import './style.css';
 
+
+const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+[...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+
+
 class State {
     xp = 1;
     max_xp = 1000;
