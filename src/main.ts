@@ -8,6 +8,7 @@ const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]
 
 class State {
     xp = 1;
+    blood = 20;
     max_xp = 1000;
     corpses = 2;
     zombies = 0;
@@ -36,6 +37,9 @@ function update() {
 
     let nb_hunters = get_element("nb-hunters");
     nb_hunters.innerHTML = `${state.hunters}`;
+
+    let blood_meter = get_element("blood");
+    blood_meter.innerHTML = `${state.blood.toFixed(1)} / 100`;
 }
 
 let previous_time = Date.now();
@@ -45,6 +49,7 @@ setInterval(() => {
     let diff = (now - previous_time) / 1000.0;
 
     state.xp += diff * 1;
+    state.blood -= diff * 0.05;
     state.corpses += diff * 0.05 * state.hunters;
 
     update();
