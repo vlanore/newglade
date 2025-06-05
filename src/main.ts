@@ -13,6 +13,8 @@ class State {
     corpses = 2;
     zombies = 0;
     hunters = 0;
+    exploration_progress = 0;
+    exploring = false;
 }
 
 let state = new State();
@@ -40,6 +42,9 @@ function update() {
 
     let blood_meter = get_element("blood");
     blood_meter.innerHTML = `${state.blood.toFixed(1)} / 100`;
+
+    let explore_meter = get_element("explore");
+    explore_meter.innerHTML = `${state.exploration_progress.toFixed(0)} / 100`;
 }
 
 let previous_time = Date.now();
@@ -51,6 +56,14 @@ setInterval(() => {
     state.xp += diff * 1;
     state.blood -= diff * 0.05;
     state.corpses += diff * 0.05 * state.hunters;
+    if (state.exploring == true) {
+        state.exploration_progress += diff * 20;
+        if (state.exploration_progress >= 100) {
+            state.exploring = false;
+            state.exploration_progress = 0;
+            state.corpses += 1;
+        }
+    }
 
     update();
     previous_time = now;
@@ -78,5 +91,12 @@ remove_hunter.onclick = () => {
     if (state.hunters > 0) {
         state.zombies += 1;
         state.hunters -= 1;
+    }
+};
+
+let start_exploration = get_element("explore");
+start_exploration.onclick = () => {
+    if (state.exploring == false) {
+        state.exploring = true;
     }
 };
