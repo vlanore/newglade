@@ -16,3 +16,12 @@
   margin: 5px;
   padding: 15px;
 }
+
+.button-progress {
+  background-color: red;
+  height: 100%;
+  width: 50%;
+  position: relative;
+  color: red;
+  ;
+}

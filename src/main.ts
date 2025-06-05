@@ -43,8 +43,10 @@ function update() {
     let blood_meter = get_element("blood");
     blood_meter.innerHTML = `${state.blood.toFixed(1)} / 100`;
 
-    let explore_meter = get_element("explore");
-    explore_meter.innerHTML = `${state.exploration_progress.toFixed(0)} / 100`;
+    if (state.exploring || (state.exploration_progress > 0)) {
+        let explore_meter = get_element("explore");
+        explore_meter.innerHTML = `<div class="button-progress" style="width: ${state.exploration_progress.toFixed(0)}%">.</div>${state.exploration_progress.toFixed(0)} / 100`;
+    }
 }
 
 let previous_time = Date.now();
