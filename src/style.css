@@ -17,11 +17,18 @@
   padding: 15px;
 }
 
-.button-progress {
-  background-color: red;
-  height: 100%;
-  width: 50%;
+button:has(>.button-progress) {
   position: relative;
-  color: red;
-  ;
+  z-index: 1;
+}
+
+.button-progress {
+  background-color: darkblue;
+  height: 105%;
+  width: 0%;
+  position: absolute;
+  color: darkblue;
+  z-index: -1;
+  margin: -7px -13px;
+  border-radius: inherit;
 }
