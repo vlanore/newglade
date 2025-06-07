@@ -42,19 +42,13 @@ button {
 .progress-bar-before {
   content: "";
   display: inline-block;
-  width: 50%;
   height: 100%;
   position: absolute;
-  z-index: -1;
 }
 
 .progress-bar {
   position: relative;
   width: 100%;
-}
-
-.progress-bar-label {
-  text-align: center;
 }
 
 #blood-bar .progress-bar-before {
@@ -69,12 +63,11 @@ button {
   height: 10px;
 }
 
-#experience-bar .progress-bar,
-#blood-bar .progress-bar {
+#experience-bar div,
+#blood-bar div {
   height: 100%;
 }
 
 #experience-bar .progress-bar-before {
   background-color: orange;
-  height: 100%;
 }
