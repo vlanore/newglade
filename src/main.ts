@@ -14,6 +14,7 @@ class State {
 }
 
 let state = new State();
+let previous_time = Date.now();
 
 tippy('#explore', {
     content: 'My tooltip!',
@@ -27,7 +28,7 @@ function get_element(id: string): HTMLElement {
     return element;
 }
 
-function update() {
+function update(): void {
     let xp_meter = get_element("xp");
     xp_meter.innerHTML = `${state.xp.toFixed(1)} / ${state.max_xp}`;
 
@@ -44,13 +45,9 @@ function update() {
     blood_meter.innerHTML = `${state.blood.toFixed(1)} / 100`;
 
     let explore_meter = get_element("explore");
-    let html = `<div class="button-progress" style="width: ` +
-        `${state.exploration_progress.toFixed(0)}%">.</div>` +
-        `Explore`;
+    let html = `Explore<br/>${state.exploration_progress.toFixed(0)}%`;
     explore_meter.innerHTML = html;
 }
-
-let previous_time = Date.now();
 
 setInterval(() => {
     let now = Date.now();
