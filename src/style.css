@@ -11,19 +11,15 @@ button {
 /* Main grid ------------------------------------------------------------------------ */
 #app {
   width: max(500px, 50%);
-  border: 1px solid darkgrey;
   margin: auto;
+  background-color: rgb(27, 27, 27);
 }
 
 .container {
   display: grid;
-  /* border: 1px solid darkgreen; */
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 1fr 2fr 1.5fr;
 }
 
-/* .container>div {
-  border: 1px solid darkred;
-} */
 
 #experience-bar,
 #blood-bar,
@@ -57,10 +53,12 @@ button {
 
 #blood-bar {
   height: 20px;
+  border-bottom: 1px solid rgb(64, 64, 64);
 }
 
 #experience-bar {
   height: 10px;
+  border-bottom: 1px solid rgb(64, 64, 64);
 }
 
 #experience-bar div,
