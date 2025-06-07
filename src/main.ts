@@ -15,6 +15,10 @@ class State {
 
 let state = new State();
 
+tippy('#explore', {
+    content: 'My tooltip!',
+});
+
 function get_element(id: string): HTMLElement {
     let element = document.getElementById(id);
     if (element == null) {
@@ -44,10 +48,6 @@ function update() {
         `${state.exploration_progress.toFixed(0)}%">.</div>` +
         `Explore`;
     explore_meter.innerHTML = html;
-
-    tippy('#explore', {
-        content: 'My tooltip!',
-    });
 }
 
 let previous_time = Date.now();
