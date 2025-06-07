@@ -24,3 +24,23 @@
   grid-column-start: 1;
   grid-column-end: 4;
 }
+
+#blood-progress-bar-before {
+  content: "";
+  display: inline-block;
+  background-color: red;
+  color: red;
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+}
+
+#blood-progress-bar {
+  position: relative;
+  width: 100%;
+}
+
+#blood-progress-bar-label {
+  text-align: center;
+}

@@ -11,7 +11,12 @@
 
     <div id="app">
         <div id="main-columns" class="container">
-            <div id="blood-bar">hello</div>
+            <div id="blood-bar">
+                <div id="blood-progress-bar" max="100" value="70">
+                    <div id="blood-progress-bar-before"></div>
+                    <div id="blood-progress-bar-label">70%</div>
+                </div>
+            </div>
             <div id="experience-bar">world</div>
 
             <!------------------------------------------------------------------------->
@@ -36,7 +41,6 @@
 
             <!------------------------------------------------------------------------->
             <div id="character" class="col-2">
-                <p>Blood: <span id="blood"> 20 / 100 </span> </p>
                 <p>XP: <span id="xp"> 0 / 1000 </span> </p>
             </div>
             <div id="minions">Youpi</div>

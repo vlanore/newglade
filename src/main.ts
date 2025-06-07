@@ -41,8 +41,10 @@ function update(): void {
     let nb_hunters = get_element("nb-hunters");
     nb_hunters.innerHTML = `${state.hunters}`;
 
-    let blood_meter = get_element("blood");
+    let blood_meter = get_element("blood-progress-bar-label");
     blood_meter.innerHTML = `${state.blood.toFixed(1)} / 100`;
+    let blood_meter_bar = get_element("blood-progress-bar-before");
+    blood_meter_bar.style = `width: ${state.blood}%;`;
 
     let explore_meter = get_element("explore");
     let html = `Explore<br/>${state.exploration_progress.toFixed(0)}%`;
