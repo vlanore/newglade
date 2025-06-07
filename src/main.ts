@@ -16,9 +16,9 @@ class State {
 let state = new State();
 let previous_time = Date.now();
 
-tippy('#explore', {
-    content: 'My tooltip!',
-});
+let xp_tooltip = tippy('#experience-bar', {
+    content: '',
+})[0];
 
 function get_element(id: string): HTMLElement {
     let element = document.getElementById(id);
@@ -37,9 +37,8 @@ function query_element(query: string): HTMLElement {
 }
 
 function update(): void {
-    let xp_bar_label = query_element("#experience-bar .progress-bar-label");
     let xp_bar_bar = query_element("#experience-bar .progress-bar-before");
-    xp_bar_label.innerHTML = `${state.xp.toFixed(0)} / 1000`;
+    xp_tooltip.setContent(`Experience ${state.xp.toFixed(0)} / 1000`);
     xp_bar_bar.style = `width: ${state.xp / 10}%`;
 
     let zombies_meter = get_element("zombies");

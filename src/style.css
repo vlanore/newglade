@@ -21,9 +21,9 @@ button {
   grid-template-columns: 1fr 2fr 1fr;
 }
 
-.container>div {
-  /* border: 1px solid darkred; */
-}
+/* .container>div {
+  border: 1px solid darkred;
+} */
 
 #experience-bar,
 #blood-bar,
@@ -61,6 +61,15 @@ button {
   background-color: red;
 }
 
+#experience-bar {
+  height: 10px;
+}
+
+#experience-bar .progress-bar {
+  height: 100%;
+}
+
 #experience-bar .progress-bar-before {
   background-color: orange;
+  height: 100%;
 }
