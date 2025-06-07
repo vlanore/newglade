@@ -61,11 +61,16 @@ button {
   background-color: red;
 }
 
+#blood-bar {
+  height: 20px;
+}
+
 #experience-bar {
   height: 10px;
 }
 
-#experience-bar .progress-bar {
+#experience-bar .progress-bar,
+#blood-bar .progress-bar {
   height: 100%;
 }
 

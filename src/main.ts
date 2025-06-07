@@ -16,6 +16,9 @@ class State {
 let state = new State();
 let previous_time = Date.now();
 
+let blood_tooltip = tippy('#blood-bar', {
+    content: '',
+})[0];
 let xp_tooltip = tippy('#experience-bar', {
     content: '',
 })[0];
@@ -50,9 +53,8 @@ function update(): void {
     let nb_hunters = get_element("nb-hunters");
     nb_hunters.innerHTML = `${state.hunters}`;
 
-    let blood_meter_label = query_element("#blood-bar .progress-bar-label");
+    blood_tooltip.setContent(`Blood ${state.blood.toFixed(1)} / 100`);
     let blood_meter_bar = query_element("#blood-bar .progress-bar-before");
-    blood_meter_label.innerHTML = `${state.blood.toFixed(1)} / 100`;
     blood_meter_bar.style = `width: ${state.blood}%;`;
 
     let explore_meter = get_element("explore");
