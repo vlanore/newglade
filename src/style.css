@@ -1,21 +1,28 @@
+body {
+  color: rgb(201, 201, 201);
+  background-color: rgb(37, 37, 37);
+}
+
+button {
+  color: rgb(201, 201, 201);
+  background-color: black;
+}
+
+/* Main grid ------------------------------------------------------------------------ */
 #app {
   width: max(500px, 50%);
-  border: 1px solid magenta;
+  border: 1px solid darkmagenta;
   margin: auto;
 }
 
 .container {
   display: grid;
-  border: 1px solid green;
+  border: 1px solid darkgreen;
   grid-template-columns: 1fr 2fr 1fr;
 }
 
 .container>div {
-  border: 1px solid red;
-}
-
-.container>div>div {
-  border: 1px solid blue;
+  border: 1px solid darkred;
 }
 
 #experience-bar,
@@ -25,6 +32,7 @@
   grid-column-end: 4;
 }
 
+/* Progress bars -------------------------------------------------------------------- */
 .progress-bar-before {
   content: "";
   display: inline-block;
