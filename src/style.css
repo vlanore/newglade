@@ -11,18 +11,18 @@ button {
 /* Main grid ------------------------------------------------------------------------ */
 #app {
   width: max(500px, 50%);
-  border: 1px solid darkmagenta;
+  border: 1px solid darkgrey;
   margin: auto;
 }
 
 .container {
   display: grid;
-  border: 1px solid darkgreen;
+  /* border: 1px solid darkgreen; */
   grid-template-columns: 1fr 2fr 1fr;
 }
 
 .container>div {
-  border: 1px solid darkred;
+  /* border: 1px solid darkred; */
 }
 
 #experience-bar,
@@ -30,6 +30,12 @@ button {
 #minions {
   grid-column-start: 1;
   grid-column-end: 4;
+}
+
+#resources,
+#story,
+#character {
+  padding: 10px;
 }
 
 /* Progress bars -------------------------------------------------------------------- */
