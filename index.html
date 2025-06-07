@@ -10,34 +10,36 @@
 <body>
 
     <div id="app">
-        <div id="main-columns" class="container text-center justify-content-center">
-            <div class="row justify-content-center">
-                <!--------------------------------------------------------------------->
-                <div id="resources" class="col-2">
-                    <p>Corpses: <span id="corpses"> 2 </span> </p>
-                    <p>Zombies: <span id="zombies"> 0 </span> </p>
-                    <p>Stone: <span> 0 / 100 </span> </p>
-                    <p>Wood: <span> 0 / 100 </span> </p>
-                </div>
+        <div id="main-columns" class="container">
+            <div id="blood-bar">hello</div>
+            <div id="experience-bar">world</div>
 
-                <!--------------------------------------------------------------------->
-                <div id="story" class="col-5">
-                    <p>You are here.</p>
-                    <button type="button" id="raise-zombie">Raise zombie</button>
-                    <button type="button" id="explore">Explore</button>
-                    <p>
-                        Hunters: <span id="nb-hunters">0</span>
-                        <button type="button" id="add-zombie-hunter">+</button>
-                        <button type="button" id="remove-zombie-hunter">-</button>
-                    </p>
-                </div>
-
-                <!--------------------------------------------------------------------->
-                <div id="character" class="col-2">
-                    <p>Blood: <span id="blood"> 20 / 100 </span> </p>
-                    <p>XP: <span id="xp"> 0 / 1000 </span> </p>
-                </div>
+            <!------------------------------------------------------------------------->
+            <div id="resources">
+                <p>Corpses: <span id="corpses"> 2 </span> </p>
+                <p>Zombies: <span id="zombies"> 0 </span> </p>
+                <p>Stone: <span> 0 / 100 </span> </p>
+                <p>Wood: <span> 0 / 100 </span> </p>
             </div>
+
+            <!------------------------------------------------------------------------->
+            <div id="story" class="col-5">
+                <p>You are here.</p>
+                <button type="button" id="raise-zombie">Raise zombie</button>
+                <button type="button" id="explore">Explore</button>
+                <p>
+                    Hunters: <span id="nb-hunters">0</span>
+                    <button type="button" id="add-zombie-hunter">+</button>
+                    <button type="button" id="remove-zombie-hunter">-</button>
+                </p>
+            </div>
+
+            <!------------------------------------------------------------------------->
+            <div id="character" class="col-2">
+                <p>Blood: <span id="blood"> 20 / 100 </span> </p>
+                <p>XP: <span id="xp"> 0 / 1000 </span> </p>
+            </div>
+            <div id="minions">Youpi</div>
         </div>
     </div>
 

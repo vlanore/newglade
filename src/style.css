@@ -1,0 +1,26 @@
+#app {
+  width: max(500px, 50%);
+  border: 1px solid magenta;
+  margin: auto;
+}
+
+.container {
+  display: grid;
+  border: 1px solid green;
+  grid-template-columns: 1fr 2fr 1fr;
+}
+
+.container>div {
+  border: 1px solid red;
+}
+
+.container>div>div {
+  border: 1px solid blue;
+}
+
+#experience-bar,
+#blood-bar,
+#minions {
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
