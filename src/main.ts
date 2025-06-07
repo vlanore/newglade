@@ -37,8 +37,10 @@ function query_element(query: string): HTMLElement {
 }
 
 function update(): void {
-    let xp_meter = get_element("xp");
-    xp_meter.innerHTML = `${state.xp.toFixed(1)} / ${state.max_xp}`;
+    let xp_bar_label = query_element("#experience-bar .progress-bar-label");
+    let xp_bar_bar = query_element("#experience-bar .progress-bar-before");
+    xp_bar_label.innerHTML = `${state.xp.toFixed(0)} / 1000`;
+    xp_bar_bar.style = `width: ${state.xp / 10}%`;
 
     let zombies_meter = get_element("zombies");
     zombies_meter.innerHTML = `${state.zombies}`;
@@ -49,9 +51,9 @@ function update(): void {
     let nb_hunters = get_element("nb-hunters");
     nb_hunters.innerHTML = `${state.hunters}`;
 
-    let blood_meter = query_element("#blood-bar .progress-bar-label");
-    blood_meter.innerHTML = `${state.blood.toFixed(1)} / 100`;
+    let blood_meter_label = query_element("#blood-bar .progress-bar-label");
     let blood_meter_bar = query_element("#blood-bar .progress-bar-before");
+    blood_meter_label.innerHTML = `${state.blood.toFixed(1)} / 100`;
     blood_meter_bar.style = `width: ${state.blood}%;`;
 
     let explore_meter = get_element("explore");

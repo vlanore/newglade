@@ -45,5 +45,8 @@
 
 #blood-bar .progress-bar-before {
   background-color: red;
-  color: red;
+}
+
+#experience-bar .progress-bar-before {
+  background-color: orange;
 }
