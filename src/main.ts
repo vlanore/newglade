@@ -1,10 +1,6 @@
+import tippy from 'tippy.js';
+import 'tippy.js/dist/tippy.css';
 import './style.css';
-
-declare const bootstrap: { Tooltip: any; };
-
-const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-[...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
-
 
 class State {
     xp = 1;
@@ -48,6 +44,10 @@ function update() {
         `${state.exploration_progress.toFixed(0)}%">.</div>` +
         `Explore`;
     explore_meter.innerHTML = html;
+
+    tippy('#explore', {
+        content: 'My tooltip!',
+    });
 }
 
 let previous_time = Date.now();
