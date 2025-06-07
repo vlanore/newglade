@@ -28,6 +28,14 @@ function get_element(id: string): HTMLElement {
     return element;
 }
 
+function query_element(query: string): HTMLElement {
+    let element = document.querySelector(query);
+    if (element == null || !(element instanceof HTMLElement)) {
+        throw new Error(`Element with query ${query} not found.`);
+    }
+    return element;
+}
+
 function update(): void {
     let xp_meter = get_element("xp");
     xp_meter.innerHTML = `${state.xp.toFixed(1)} / ${state.max_xp}`;
@@ -41,9 +49,9 @@ function update(): void {
     let nb_hunters = get_element("nb-hunters");
     nb_hunters.innerHTML = `${state.hunters}`;
 
-    let blood_meter = get_element("blood-progress-bar-label");
+    let blood_meter = query_element("#blood-bar .progress-bar-label");
     blood_meter.innerHTML = `${state.blood.toFixed(1)} / 100`;
-    let blood_meter_bar = get_element("blood-progress-bar-before");
+    let blood_meter_bar = query_element("#blood-bar .progress-bar-before");
     blood_meter_bar.style = `width: ${state.blood}%;`;
 
     let explore_meter = get_element("explore");
