@@ -123,3 +123,12 @@ start_exploration.onclick = () => {
         state.exploring = true;
     }
 };
+
+let restart_button = get_element("restart");
+restart_button.onclick = () => {
+    if (state.dead) {
+        state = new State();
+        get_element("main-columns").classList.remove("hidden");
+        get_element("death-screen").hidden = true;
+    }
+};

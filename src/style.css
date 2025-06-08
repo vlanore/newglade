@@ -34,8 +34,13 @@ button {
 
 #resources,
 #story,
-#character {
+#character,
+#death-screen {
   padding: 10px;
+}
+
+#death-screen {
+  text-align: center;
 }
 
 /* Progress bars -------------------------------------------------------------------- */
