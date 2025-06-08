@@ -8,6 +8,10 @@ button {
   background-color: black;
 }
 
+.hidden {
+  display: none !important;
+}
+
 /* Main grid ------------------------------------------------------------------------ */
 #app {
   width: max(500px, 50%);

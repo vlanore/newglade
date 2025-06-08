@@ -11,6 +11,7 @@ class State {
     hunters = 0;
     exploration_progress = 0;
     exploring = false;
+    dead = false;
 }
 
 let state = new State();
@@ -66,15 +67,25 @@ setInterval(() => {
     let now = Date.now();
     let diff = (now - previous_time) / 1000.0;
 
-    state.xp += diff * 1;
-    state.blood -= diff * 0.05;
-    state.corpses += diff * 0.05 * state.hunters;
-    if (state.exploring == true) {
-        state.exploration_progress += diff * 20;
-        if (state.exploration_progress >= 100) {
-            state.exploring = false;
-            state.exploration_progress = 0;
-            state.corpses += 1;
+    if (!state.dead) {
+
+        state.xp += diff * 1;
+        state.corpses += diff * 0.05 * state.hunters;
+
+        if (state.exploring == true) {
+            state.exploration_progress += diff * 20;
+            if (state.exploration_progress >= 100) {
+                state.exploring = false;
+                state.exploration_progress = 0;
+                state.corpses += 1;
+            }
+        }
+
+        state.blood -= diff * 2.5;
+        if (state.blood <= 0) {
+            state.dead = true;
+            get_element("main-columns").classList.add("hidden");
+            get_element("death-screen").hidden = false;
         }
     }
 
