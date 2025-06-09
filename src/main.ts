@@ -4,6 +4,7 @@ import './style.css';
 
 class State {
     xp = 1;
+    meta_xp = 0;
     blood = 20;
     max_xp = 1000;
     corpses = 2;
@@ -41,26 +42,31 @@ function query_element(query: string): HTMLElement {
 }
 
 function update(): void {
-    let xp_bar_bar = query_element("#experience-bar .progress-bar-before");
-    xp_tooltip.setContent(`Experience ${state.xp.toFixed(0)} / 1000`);
-    xp_bar_bar.style = `width: ${state.xp / 10}%`;
+    if (!state.dead) {
+        let xp_bar_bar = query_element("#experience-bar .progress-bar-before");
+        xp_tooltip.setContent(`Experience ${state.xp.toFixed(0)} / 1000`);
+        xp_bar_bar.style = `width: ${state.xp / 10}%`;
 
-    let zombies_meter = get_element("zombies");
-    zombies_meter.innerHTML = `${state.zombies}`;
+        let zombies_meter = get_element("zombies");
+        zombies_meter.innerHTML = `${state.zombies}`;
 
-    let corpses_meter = get_element("corpses");
-    corpses_meter.innerHTML = `${Math.trunc(state.corpses)}`;
+        let corpses_meter = get_element("corpses");
+        corpses_meter.innerHTML = `${Math.trunc(state.corpses)}`;
 
-    let nb_hunters = get_element("nb-hunters");
-    nb_hunters.innerHTML = `${state.hunters}`;
+        let nb_hunters = get_element("nb-hunters");
+        nb_hunters.innerHTML = `${state.hunters}`;
 
-    blood_tooltip.setContent(`Blood ${state.blood.toFixed(1)} / 100`);
-    let blood_meter_bar = query_element("#blood-bar .progress-bar-before");
-    blood_meter_bar.style = `width: ${state.blood}%;`;
+        blood_tooltip.setContent(`Blood ${state.blood.toFixed(1)} / 100`);
+        let blood_meter_bar = query_element("#blood-bar .progress-bar-before");
+        blood_meter_bar.style = `width: ${state.blood}%;`;
 
-    let explore_meter = get_element("explore");
-    let html = `Explore<br/>${state.exploration_progress.toFixed(0)}%`;
-    explore_meter.innerHTML = html;
+        let explore_meter = get_element("explore");
+        let html = `Explore<br/>${state.exploration_progress.toFixed(0)}%`;
+        explore_meter.innerHTML = html;
+    } else {
+        let meta_xp = get_element("meta-xp-death");
+        meta_xp.innerHTML = `You have ${state.meta_xp.toFixed(1)} meta XP`;
+    }
 }
 
 setInterval(() => {
@@ -82,8 +88,11 @@ setInterval(() => {
         }
 
         state.blood -= diff * 2.5;
+
+        // death
         if (state.blood <= 0) {
             state.dead = true;
+            state.meta_xp += state.xp / 10.0;
             get_element("main-columns").classList.add("hidden");
             get_element("death-screen").hidden = false;
         }
@@ -127,7 +136,9 @@ start_exploration.onclick = () => {
 let restart_button = get_element("restart");
 restart_button.onclick = () => {
     if (state.dead) {
+        let meta_xp = state.meta_xp;
         state = new State();
+        state.meta_xp = meta_xp;
         get_element("main-columns").classList.remove("hidden");
         get_element("death-screen").hidden = true;
     }
